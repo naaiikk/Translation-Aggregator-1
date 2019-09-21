@@ -78,7 +78,7 @@ void TranslationWindow::SetFont()
 		if (config.font.underline) format.dwEffects |= CFE_UNDERLINE;
 		if (config.font.strikeout) format.dwEffects |= CFE_STRIKEOUT;
 		if (config.font.color)
-			format.crTextColor = config.font.color;
+			format.crTextColor = RGB(100, 149, 237);
 		else
 			format.dwEffects |= CFE_AUTOCOLOR;
 
@@ -87,6 +87,9 @@ void TranslationWindow::SetFont()
 		wcscpy(format.szFaceName, config.font.face);
 
 		SendMessage(hWndEdit, EM_SETCHARFORMAT, SCF_ALL|SCF_DEFAULT, (LPARAM) &format);
+		
+		// BACKGROUND COLOR
+		SendMessage(hWndEdit, EM_SETBKGNDCOLOR, 0, RGB(32, 32, 32));
 	}
 }
 
