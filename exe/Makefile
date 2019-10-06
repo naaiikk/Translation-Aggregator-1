@@ -1,6 +1,6 @@
 
-CC = i686-w64-mingw32-gcc
-CXX = i686-w64-mingw32-g++
+CC = gcc
+CXX = g++
 AR = i686-w64-mingw32-ar
 WINDRES = i686-w64-mingw32-windres
 #CFLAGS += -O0 -g
