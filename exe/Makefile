@@ -1,13 +1,13 @@
 
-CC = gcc
-CXX = g++
-AR = i686-w64-mingw32-ar
-WINDRES = i686-w64-mingw32-windres
+CC = x86_64-w64-mingw32-gcc
+CXX = x86_64-w64-mingw32-g++
+AR = x86_64-w64-mingw32-ar
+WINDRES = windres
 #CFLAGS += -O0 -g
 GIT_TAG := $(shell git describe --abbrev=0 --tags)
 CFLAGS += -O3
 CFLAGS += -std=c++17 -Wall -Wno-unused-value -Wno-format -I.. -DGIT_TAG=L\"$(GIT_TAG)\" -DNDEBUG -DNO_GZCOMPRESS -DWIN32 -D_WINDOWS -DHAVE_CONFIG_H -DPCRE_STATIC -DMINGW_HAS_SECURE_API -DUNICODE -D_UNICODE
-LDFLAGS += -s -static -static-libstdc++ -static-libgcc -municode
+LDFLAGS += -s -static -static-libstdc++ -static-libgcc -municode -Wl,--subsystem,windows
 LDLIBS += -lwinmm -lws2_32 -lcomctl32 -lgdi32 -lwinhttp -lpsapi -luser32 -lcomdlg32 -lole32 -lshell32 -ladvapi32 
 
 %.o: %.c
@@ -35,6 +35,9 @@ all: $(BINARY)
 archive: $(ARCHIVE)
 
 clean:
+	rm -f $(OBJECTS)
+
+cleaner:
 	rm -f $(OBJECTS) $(BINARY) $(ARCHIVE)
 
 $(ARCHIVE): $(BINARY) TranslationAggregator.ini ../docs ../dictionaries ../Plugins
