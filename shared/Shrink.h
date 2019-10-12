@@ -6,10 +6,11 @@
 #define UNICODE
 #endif
 
+#define WIN32_LEAN_AND_MEAN
 #define _WIN32_WINNT 0x0501
 #define INITGUID
-#include <WinSock2.h>
 #include <Windows.h>
+#include <WinSock2.h>
 #include <stdio.h>
 #ifndef NO_STD
 #include <string>
@@ -18,6 +19,10 @@
 #include <vector>
 #include <map>
 #endif
+
+#include <commdlg.h>
+#include <mmsystem.h>
+#include <shellapi.h>
 
 // Needed for typedefs used by http windows.
 #include <Winhttp.h>
@@ -42,7 +47,11 @@
 #define APP_NAME L"Translation Aggregator"
 #define APP_VERSION GIT_TAG L" (Unofficial)"
 
+#ifdef SETSUMI_CHANGES
+#define HTTP_REQUEST_ID L"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 1.1.4322; Creative AutoUpdate v1.40.01)"
+#else
 #define HTTP_REQUEST_ID L"TRAG/" APP_VERSION
+#endif
 
 #define MAIN_WINDOW_TITLE APP_NAME L" " APP_VERSION
 #define MAIN_WINDOW_CLASS APP_NAME L" Main Window"
