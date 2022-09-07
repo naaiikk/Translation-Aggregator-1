@@ -2,7 +2,7 @@
 CC = x86_64-w64-mingw32-gcc
 CXX = x86_64-w64-mingw32-g++
 AR = x86_64-w64-mingw32-ar
-WINDRES = x86_64-w64-mingw32-windres
+WINDRES = windres
 #CFLAGS += -O0 -g
 GIT_TAG := $(shell git describe --abbrev=0 --tags)
 CFLAGS += -O3
