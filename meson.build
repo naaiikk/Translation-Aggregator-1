@@ -4,11 +4,6 @@ project(
 		'c',
 		'cpp'
 	],
-	default_options: [
-		'optimization=3',
-		'debug=true',
-		'warning_level=0'
-	],
 	version: 'unknown'
 )
 
@@ -44,6 +39,7 @@ TranslationAggregator_cppflags += TranslationAggregator_cflags
 
 TranslationAggregator_cppflags += [
 	'-std=c++11',
+	'-mwindows'
 ]
 
 TranslationAggregator_ldflags = []
