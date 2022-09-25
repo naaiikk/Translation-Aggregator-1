@@ -1,3 +1,4 @@
 git submodule update --remote --merge
-meson setup builddir && cd builddir
+meson setup release --buildtype=release && cd release
+meson setup debug --buildtype=debug && cd debug
 meson compile
