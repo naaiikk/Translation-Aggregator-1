@@ -1,4 +1,4 @@
-﻿// Handles main windows and basically everything that involves
+// Handles main windows and basically everything that involves
 // communication between multipl subwindows.
 // #include <vld.h>
 /*
@@ -15,7 +15,7 @@
 #include "TranslationWindows/LocalWindows/FuriganaWindow.h"
 #endif
 
-#include "config.h"
+#include "Config.h"
 #include "util/Injector.h"
 
 #include <Shared/DllInjection.h>

@@ -2,6 +2,8 @@
 //
 #include "resource.h"
 
+#define MACRO_TO_STRING(x) #x
+
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -248,6 +250,43 @@ BEGIN
     END
 END
 #endif    // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "Source code for the latest version of this product is located on the World Wide Web at https://github.com/uyjulian/Translation-Aggregator"
+            VALUE "FileDescription", "Translation Aggregator"
+            VALUE "FileVersion", MACRO_TO_STRING(GIT_TAG)
+            VALUE "LegalCopyright", "Originally created by ScumSuckingPig; modified by furniture, Setsumi, Sinflower, uyjulian; This product is licensed under the GNU General Public License Version 2."
+            VALUE "OriginalFilename", "TranslationAggregator.exe"
+            VALUE "ProductName", "Translation Aggregator"
+            VALUE "ProductVersion", MACRO_TO_STRING(GIT_TAG)
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
 
 #endif    // Japanese (Japan) resources
 /////////////////////////////////////////////////////////////////////////////

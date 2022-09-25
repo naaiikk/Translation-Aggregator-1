@@ -3,4 +3,6 @@
 *.a
 *.exe
 *.7z
+build
+build-*
 .vs
