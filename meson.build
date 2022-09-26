@@ -39,7 +39,6 @@ TranslationAggregator_cppflags += TranslationAggregator_cflags
 
 TranslationAggregator_cppflags += [
 	'-std=c++11',
-	'-mwindows'
 ]
 
 TranslationAggregator_ldflags = []
@@ -50,6 +49,7 @@ if target_machine.system() == 'windows'
 		'-static-libgcc',
 		'-municode',
 		'-Wl,--subsystem,windows',
+		'-mwindows'
 	]
 endif
 
