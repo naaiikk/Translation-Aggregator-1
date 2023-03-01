@@ -178,14 +178,6 @@ archive = custom_target(
 	]
 )
 endif
-project(
-	'TranslationAggregator',
-	[
-		'c',
-		'cpp'
-	],
-	version: 'unknown'
-)
 
 cxx = meson.get_compiler('cpp')
 cc = meson.get_compiler('c')
@@ -318,39 +310,3 @@ TranslationAggregator_includes = [
 	'exe',
 	'3rdParty/json/single_include/nlohmann'
 ]
-
-TranslationAggregator_src += windows.compile_resources(
-	TranslationAggregator_src_rc,
-	args: TranslationAggregator_rcflags,
-	include_directories: include_directories(TranslationAggregator_includes)
-)
-
-TranslationAggregator = executable(
-	'TranslationAggregator',
-	sources: TranslationAggregator_src,
-	include_directories: include_directories(TranslationAggregator_includes),
-	c_args: TranslationAggregator_cflags,
-	cpp_args: TranslationAggregator_cppflags,
-	link_args: TranslationAggregator_ldflags,
-)
-
-if host_system == 'windows' and cc.get_id() != 'msvc' and cc.get_id() != 'clang-cl'
-archive = custom_target(
-	'archive',
-	output: meson.project_name() + '-' + git_tag + '-win32.7z',
-	input: [
-		TranslationAggregator,
-		'exe/TranslationAggregator.ini',
-	],
-	build_by_default: true,
-	command: [
-		find_program('7z'),
-		'a',
-		'@OUTPUT@',
-		'@INPUT@',
-		join_paths(meson.source_root(), 'docs'),
-		join_paths(meson.source_root(), 'dictionaries'),
-		join_paths(meson.source_root(), 'Plugins')
-	]
-)
-endif

@@ -8,3 +8,4 @@ build-*
 .vs
 .vscodebuild
 build-*
+release
