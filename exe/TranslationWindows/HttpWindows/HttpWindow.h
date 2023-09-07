@@ -1,5 +1,6 @@
 #pragma once
 #include "../TranslationWindow.h"
+#include <cstdint>
 // Needed for language enum.
 
 class HttpWindow : public TranslationWindow
